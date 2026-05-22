@@ -1,42 +1,28 @@
+import express from "express";
 import dotenv from "dotenv";
 
+import qrRoutes from "./routes/qr.routes.js";
+import { startWhatsApp } from "./services/whatsapp.service.js";
+import "./services/message.handler.js";
+
 dotenv.config();
-
-import express from "express";
-
-import { StartWhatsApp } from "./services/whatsapp.service.js";
-
 
 const app = express();
 
 app.use(express.json());
 
+// rotas
+app.use(qrRoutes);
 
 app.get("/", (req, res) => {
-
-    return res.status(200).json({
-        online: true
-    });
-
+    res.send("Message API rodando 🚀");
 });
-
 
 const PORT = process.env.PORT || 3000;
 
+app.listen(PORT, () => {
+    console.log("API rodando na porta", PORT);
+});
 
-async function StartServer() {
-
-    await StartWhatsApp();
-
-
-    app.listen(PORT, "0.0.0.0", () => {
-
-        console.log(
-            `Servidor rodando na porta ${PORT}`
-        );
-
-    });
-
-}
-
-StartServer();
+// inicia WhatsApp
+startWhatsApp();
