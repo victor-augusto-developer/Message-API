@@ -1,6 +1,3 @@
-# MessageCore API
-
-WhatsApp AI API built with Node.js, WhatsApp Web.js, and OpenRouter AI.
 
 ## Features
 
@@ -33,3 +30,4 @@ Clone repository:
 
 ```bash
 git clone https://github.com/victor-augusto-developer/Message-API.git
+
