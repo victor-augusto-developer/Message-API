@@ -6,6 +6,7 @@ export async function GenerateAIResponse(message) {
     try {
 
         const response = await axios.post(
+
             "https://openrouter.ai/api/v1/chat/completions",
 
             {
@@ -13,10 +14,18 @@ export async function GenerateAIResponse(message) {
                 model: process.env.OPENROUTER_MODEL,
 
                 messages: [
+
+                    {
+                        role: "system",
+                        content:
+                            "Você é um assistente inteligente do WhatsApp."
+                    },
+
                     {
                         role: "user",
                         content: message
                     }
+
                 ]
 
             },
@@ -25,23 +34,24 @@ export async function GenerateAIResponse(message) {
 
                 headers: {
 
-                    "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+                    Authorization:
+                        `Bearer ${process.env.OPENROUTER_API_KEY}`,
 
                     "Content-Type": "application/json"
 
                 }
 
             }
+
         );
 
-        return response.data.choices[0].message.content;
+        return response
+            .data
+            .choices[0]
+            .message
+            .content;
 
     } catch (error) {
 
-        console.log(error.response?.data || error.message);
-
-        return "Erro interno da IA.";
-
     }
-
 }
