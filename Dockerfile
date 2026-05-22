@@ -1,12 +1,11 @@
-FROM node:20
+FROM node:20-slim
 
-# instala dependências do chrome
 RUN apt-get update && apt-get install -y \
     chromium \
     ca-certificates \
     fonts-liberation \
-    libappindicator3-1 \
-    libasound2t64 \
+    libayatana-appindicator3-1 \
+    libasound2 \
     libatk-bridge2.0-0 \
     libatk1.0-0 \
     libcups2 \
@@ -21,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     libxrandr2 \
     xdg-utils \
     wget \
-    --no-install-recommends
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
