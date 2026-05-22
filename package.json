@@ -1,0 +1,30 @@
+{
+  "name": "message-api",
+  "version": "1.0.0",
+  "description": "A simple WhatsApp messaging API for sending and receiving messages in real time, with easy integration for applications and automation.",
+  "homepage": "https://github.com/victor-augusto-developer/Message-API#readme",
+  "bugs": {
+    "url": "https://github.com/victor-augusto-developer/Message-API/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victor-augusto-developer/Message-API.git"
+  },
+  "license": "MIT",
+  "author": "Victor Augusto Gonçalves Valério",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2",
+    "puppeteer": "^25.0.4",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.7",
+    "wwebjs-mongo": "^1.1.0"
+  }
+}
