@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import { startWhatsApp } from "./services/whatsapp.service.js";
 
@@ -17,6 +18,7 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 
@@ -43,7 +45,8 @@ POST /invite/message
 Body:
 {
   "phone": "5516999999999",
-  "message": "Olá"
+  "message": "Olá",
+  "password" : "exemplo"
 }
 
 RESET SESSION

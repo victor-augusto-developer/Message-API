@@ -88,7 +88,8 @@ Body:
 ```json
 {
   "phone": "5516999999999",
-  "message": "Olá"
+  "message": "Olá",
+  "password": "sua_senha"
 }
 ```
 Resposta:
@@ -114,7 +115,7 @@ Resposta:
 ```json
 {
   "success": true,
-  "message": "Sessão resetada"
+  "message": "Sessão resetada e reiniciada com sucesso"
 }
 ```
 ⚙️ Instalação
