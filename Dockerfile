@@ -4,8 +4,6 @@ RUN apt-get update && apt-get install -y \
     chromium \
     ca-certificates \
     fonts-liberation \
-    libayatana-appindicator3-1 \
-    libasound2 \
     libatk-bridge2.0-0 \
     libatk1.0-0 \
     libcups2 \
@@ -19,7 +17,6 @@ RUN apt-get update && apt-get install -y \
     libxdamage1 \
     libxrandr2 \
     xdg-utils \
-    wget \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
