@@ -1,18 +1,21 @@
 import express from "express";
-import { getQR } from "../services/whatsapp.service.js";
+import { getQR, isWhatsAppReady } from "../services/whatsapp.service.js";
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    const qr = getQR();
-
-    if (!qr) {
-        return res.status(404).json({
-            error: "QR não disponível ou WhatsApp conectado!"
+    if (isWhatsAppReady()) {
+        return res.json({
+            connected: true
         });
     }
 
-    return res.json({ qr });
+    const qr = getQR();
+
+    return res.json({
+        connected: false,
+        qr
+    });
 });
 
 export default router;
